@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "RCLP2",
-    "slug": "RCLP2",
-    "version": "1.0.0",
+    "name": "RCLP",
+    "slug": "RCLP",
+    "version": "2.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -20,11 +20,20 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#FFFFFF"
+      },
+      "softwareKeyboardLayoutMode": "pan",
+      "versionCode": 7,
+      "package": "wildsteelerfan.tk.rclp",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ce20dbaa-3731-4b4b-9a67-8fec1b698828"
+      }
     }
   }
 }
