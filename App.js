@@ -152,11 +152,12 @@ const codeArr = [ '1234' , '1111','0000','1212','7777','1004','2000','4444','222
 '3612','3613','3615','3625','3672','3818','3823','3894','3914','3918','4033','4041','4055','4126','4127','4128','4206','4235','4243',
 '4256','4539','4548','4628','4649','4657','4722','4901','5024','5028','5116','5117','5133','5242','5310','5312','5504','5521','5535',
 '5551','5554','5754','5808','5809','5841','5869','5966','6164','6275','6325','6369','6461','6554','6559','6633','6664','6713','7095',
-'7260','7306','7321','7326','7337','7579','7604','7678','7824','7845','7902','7909','7989','8055','8133','8207','8318','8350','8477','8487','8811','8828','9125','9969','0031','0200','0235',
-'0663','0734','0864','0980','0988','1049','1261','1287','1367','1398','1474','1481','1482','1573','1574','1587','1629','1631','1638','1648','1663','1736','1834','1838','1862','1864','2032',
-'2034','2047','2088','2090','2155','2156','2199','2238','2262','2294','2348','2350','2443','2461','2532','2570','2621','2652','2667','2669','2686','2688','2702','2715','2718','2818','2856',
-'3020','3116','3155','3182','3204','3242','3244','3251','3259','3286','3291','3306','3386','3415','3430','3445','3455','3462','3476','3510','3543','3594','3639','3810','3841','3911','4012',
-'4013','4022','4050','4152','4221','4225','4313','4550','4586','4655','4710','4800','4879','4967','5052','5055','5111','5124','5230','5282','5330','5386','5411','5438','5463','5466','5514',
+'7260','7306','7321','7326','7337','7579','7604','7678','7824','7845','7902','7909','7989','8055','8133','8207','8318','8350','8477',
+'8487','8811','8828','9125','9969','0031','0200','0235','0663','0734','0864','0980','0988','1049','1261','1287','1367','1398','1474',
+'1481','1482','1573','1574','1587','1629','1631','1638','1648','1663','1736','1834','1838','1862','1864','2032','2034','2047','2088',
+'2090','2155','2156','2199','2238','2262','2294','2348','2350','2443','2461','2532','2570','2621','2652','2667','2669','2686','2688',
+'2702','2715','2718','2818','2856','3020','3116','3155','3182','3204','3242','3244','3251','3259','3286','3291','3306','3386','3415',
+'3430','3445','3455','3462','3476','3510','3543','3594','3639','3810','3841','3911','4012','4013','4022','4050','4152','4221','4225','4313','4550','4586','4655','4710','4800','4879','4967','5052','5055','5111','5124','5230','5282','5330','5386','5411','5438','5463','5466','5514',
 '5563','5564','5595','5735','5758','5791','5879','5969','6036','6109','6110','6111','6210','6211','6251','6280','6455','6500','6556','6566','6611','6656','6676','6697','6912','6970','6989',
 '7022','7151','7177','7188','7418','7421','7512','7532','7612','7765','7770','7776','7780','7782','7860','7892','7982','8007','8180','8203','8228','8500','8512','8513','8612','8675','8721',
 '8788','8812','8925','8972','8977','9010','9091','9100','9201','9815','9909','0055','0060','0168','0684','0741','1291','1293','1554','1566','1585','1643','1675','1682','1715','1785','1816',
@@ -499,105 +500,91 @@ irlHeirloom = () =>{
 
   render() {
     return (
-
-      
-      <DismissKeyboard>
       
      <View style={styles.container}>
      
       <StatusBar style="light" />
       
-        <View style = {{flexDirection: 'column', width: '80%', height: '40%', alignItems: 'center', justifyContent: 'center'}}>
-        
-        <TouchableOpacity  onPress= {this.irlHeirloom} > 
-        <Image source={require('./assets/icon.png')} style= {{width: 125, height:125}} />
-          </TouchableOpacity>
-    
-        <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', textAlign: 'center', width:'100%'}}>
+        <View style = {{flexDirection: 'column', width: '80%', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
 
+        <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', textAlign: 'center', width:'100%', marginTop:'15%'}}>
         <TouchableOpacity style={styles.leftRight} onPress={this.decValue}> 
           <Text style = {{fontSize: 50, color:'white'}}> {this.state.leftArrow} </Text>
           </TouchableOpacity>
-        <Text>      </Text>
-
-        <Text style={styles.textInput} ># {this.state.myNumber} </Text>
-          
-          <Text>      </Text>
-
+        <Text style={styles.textInput} >Base code # {this.state.myNumber} </Text>
           <TouchableOpacity style={styles.leftRight} onPress={this.incValue}> 
           <Text style = {{fontSize: 50,color:'white'}}> {this.state.rightArrow} </Text>
           </TouchableOpacity>
 
           </View>
-          <View style= {{marginBottom:'3%'}}></View>
+          <View style= {{marginBottom:'5%'}}></View>
           
-          <TouchableOpacity onPress = {this.setFun} style = {{borderWidth: 2, borderRadius: 15, backgroundColor: 'green', width: 100, height: 50, alignItems: 'center', justifyContent: 'center'}}> 
+          <TouchableOpacity onPress = {this.setFun} style = {{borderWidth: 2, borderRadius: 15, backgroundColor: 'green', width: 100, height: '8%', alignItems: 'center', justifyContent: 'center'}}> 
           <Text style={{color:'white', fontSize: 25}}>Enter</Text>
           </TouchableOpacity>
 
           <View style= {{marginBottom:'5%'}}></View>
 
-        <View style = {{backgroundColor: 'gray', marginBottom: 10, width: '100%', borderWidth: 2, height: 65, justifyContent: 'center', alignItems:'center'}}>
-        <Text style={{fontSize: 50, color: 'white', fontWeight: 'bold', textAlign:'center'}}>{codeArr[this.state.value]}</Text>
+        <View style = {{backgroundColor: 'gray', marginBottom: '5%', width: '100%', borderWidth: 2, height: '10%', justifyContent: 'center', alignItems:'center'}}>
+        <Text style={{fontSize: 50, color: 'white', fontWeight: 'bold', textAlign:'center',alignItems:'center'}}>{codeArr[this.state.value]}</Text>
         </View>
 
 
-        <View style = {{flexDirection: 'row', height:'25%', width:"100%"}}>
+        <View style = {styles.numRows}>
 
         <TouchableOpacity style = {styles.container2}onPress = {() =>{this.keyPad("7")}} >
         <Text style = {styles.textCont}>7</Text>
         </TouchableOpacity>
-        <Text>  </Text>
+      
           
-        <TouchableOpacity style = {styles.container2} onPress = {() =>{this.keyPad("8")}}>
+        <TouchableOpacity style = {styles.middleNum} onPress = {() =>{this.keyPad("8")}}>
         <Text style = {styles.textCont} >8</Text>
         </TouchableOpacity>
-        <Text>  </Text>
+       
         <TouchableOpacity style = {styles.container2} onPress = {() =>{this.keyPad("9")}}>
         <Text style = {styles.textCont} >9</Text>
         </TouchableOpacity>
         
 
         </View>
-        <View style = {{flexDirection: 'row', height:'25%', width:"100%"}}>
+        <View style = {styles.numRows}>
         <TouchableOpacity style = {styles.container2}onPress = {() =>{this.keyPad("4")}}>
         <Text style = {styles.textCont}>4</Text>
         </TouchableOpacity>
-        <Text>  </Text>
-        <TouchableOpacity style = {styles.container2}onPress = {() =>{this.keyPad("5")}}>
+      
+        <TouchableOpacity style = {styles.middleNum}onPress = {() =>{this.keyPad("5")}}>
         <Text style = {styles.textCont} >5</Text>
         </TouchableOpacity>
-        <Text>  </Text>
+       
         <TouchableOpacity style = {styles.container2} onPress = {() =>{this.keyPad("6")}}>
         <Text style = {styles.textCont} >6</Text>
         </TouchableOpacity>
         </View>
-        <View style = {{flexDirection: 'row', height:'25%', width:"100%"}}>
+        <View style = {styles.numRows}>
         <TouchableOpacity style = {styles.container2} onPress = {() =>{this.keyPad("1")}}>
         <Text style = {styles.textCont} >1</Text>
         </TouchableOpacity>
-        <Text>  </Text>
-        <TouchableOpacity style = {styles.container2} onPress = {() =>{this.keyPad("2")}}>
+       
+        <TouchableOpacity style = {styles.middleNum} onPress = {() =>{this.keyPad("2")}}>
         <Text style = {styles.textCont}>2</Text>
         </TouchableOpacity>
-        <Text>  </Text>
+        
         <TouchableOpacity style = {styles.container2} onPress = {() =>{this.keyPad("3")}}>
         <Text style = {styles.textCont}>3</Text>
         </TouchableOpacity>
         </View>
-        <View style = {{flexDirection: 'row', height:'25%', width:"100%"}}>
+        <View style = {styles.numRows}>
         <TouchableOpacity style = {styles.container3} onPress = {() =>{this.keyPad("0")}} >
         <Text style = {styles.textCont} >0</Text>
         </TouchableOpacity>
-        
-        <Text>  </Text>
+   
         <TouchableOpacity style = {styles.container4} onPress = {() =>{this.setState({myNumber: ""})}}>
         <Text style = {styles.textCont} >C</Text>
         </TouchableOpacity>
         </View>
         </View>
       </View>
-      </DismissKeyboard>
+
       
     );
   }
@@ -614,30 +601,44 @@ const styles = StyleSheet.create({
   },
 
   container2: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: '#ddd',
-    height: '90%',
-    width: '33%',
+    height: '100%',
+    width: '30%',
+    fontSize: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2
+  },
+  middleNum: {
+    //flex: 1,
+    backgroundColor: '#ddd',
+    height: '100%',
+    width: '30%',
+    marginLeft:'5%',
+    marginRight:'5%',
     fontSize: 50,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2
   },
   container3: {
-    flex: .677,
+    //flex: .677,
+    width: '65%',
+    marginRight:'5%',
     backgroundColor: '#ddd',
-    height: '90%',
+    height: '100%',
     fontSize: 50,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2
   },
   container4: {
-    flex: .323,
+    //flex: .323,
+    width:'30%',
     backgroundColor: '#ddd',
-    height: '90%',
+    height: '100%',
     fontSize: 50,
-    width: '67%',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2
@@ -656,11 +657,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
     borderWidth: 2,
-    borderRadius: 20,
+    borderRadius: 15,
     fontSize: 30,
   },
   leftRight:{
-    backgroundColor: '#333333', width: 60, alignItems: 'center', justifyContent: 'center'
+    backgroundColor: '#333333', width: 60, alignItems: 'center', justifyContent: 'center',
+  },
+  numRows:{
+    flexDirection: 'row', height:'10%', width:"100%", alignItems:'center', justifyContent:'center', marginBottom:'5%'
   }
  
 }); 
