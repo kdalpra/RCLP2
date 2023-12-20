@@ -1,14 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, TouchableWithoutFeedback, Keyboard, TouchableOpacity, ScrollView, Image } from 'react-native';
-import * as WebBrowser from 'expo-web-browser';
+import { StyleSheet, Text, View, Button, TextInput, TouchableWithoutFeedback, Keyboard, TouchableOpacity, ScrollView, Image, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-const DismissKeyboard = ({children}) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    {children}
-  </TouchableWithoutFeedback>
-)
 
 
 const codeArr = [ '1234' , '1111','0000','1212','7777','1004','2000','4444','2222','6969','9999','3333','5555','6666','1122','1313',
@@ -457,6 +451,7 @@ export default class App extends React.Component {
   } 
 
   decValue = () =>{
+//AsyncStorage.removeItem("FTU");
     if(this.state.myNumber === "" || !this.state.myNumber){
       this.setState({myNumber: (this.state.value).toString()})
     }
@@ -477,7 +472,10 @@ export default class App extends React.Component {
   }
 
 keyPad = (num) =>{
-  if(this.state.myNumber.length < 4){
+  if(this.state.myNumber == "0"){
+    this.setState({myNumber:num});
+  }
+  else if(this.state.myNumber.length < 4){
     let newText = this.state.myNumber + num
     this.setState({myNumber: newText})
   }
@@ -493,8 +491,37 @@ setFun = () =>{
 }
 
 irlHeirloom = () =>{
-  //WebBrowser.openBrowserAsync("https://displate.com/displate/5803719?art=5f091ef9094fa");
   console.log("");
+}
+
+checkFirstTimeUser = async()=>{
+  let localStorageFTU = await AsyncStorage.getItem("FTU");
+  if(localStorageFTU !== null){ //local storage has been stored already
+    this.setState({firstTimeUser: localStorageFTU});
+  }
+  else{
+    await AsyncStorage.setItem("FTU", "set");
+    this.tipsFTU();
+  }
+}
+
+tipsFTU = ()=>{
+  Alert.alert(
+    "Rust Tip",
+    "Raid a base with more than 1 door on the outside. You can avoid the cooldown by alternating which door you raid every time you respawn.",
+    [
+      {text: "Thank you",onPress: () => { this.appTip(); }}]);
+}
+
+appTip = ()=>{
+  Alert.alert(
+    "App Tip",
+    "Use the C button to clear the base code #. Then tap the numbers and Enter to quickly search through the list of base codes.",
+    [
+      {text: "Thank you",onPress: () => { console.log(""); }}]);
+}
+componentDidMount(){
+  this.checkFirstTimeUser();
 }
 
 
@@ -507,25 +534,25 @@ irlHeirloom = () =>{
       
         <View style = {{flexDirection: 'column', width: '80%', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
 
-        <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', textAlign: 'center', width:'100%', marginTop:'15%'}}>
+        <View style = {{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', textAlign: 'center', width:'100%', marginTop:'20%'}}>
         <TouchableOpacity style={styles.leftRight} onPress={this.decValue}> 
           <Text style = {{fontSize: 50, color:'white'}}> {this.state.leftArrow} </Text>
           </TouchableOpacity>
-        <Text style={styles.textInput} >Base code # {this.state.myNumber} </Text>
+        <Text style={styles.textInput} > # {this.state.myNumber} </Text>
           <TouchableOpacity style={styles.leftRight} onPress={this.incValue}> 
           <Text style = {{fontSize: 50,color:'white'}}> {this.state.rightArrow} </Text>
           </TouchableOpacity>
 
           </View>
-          <View style= {{marginBottom:'5%'}}></View>
+          <View style= {{marginBottom:'2%'}}></View>
           
           <TouchableOpacity onPress = {this.setFun} style = {{borderWidth: 2, borderRadius: 15, backgroundColor: 'green', width: 100, height: '8%', alignItems: 'center', justifyContent: 'center'}}> 
           <Text style={{color:'white', fontSize: 25}}>Enter</Text>
           </TouchableOpacity>
 
-          <View style= {{marginBottom:'5%'}}></View>
+          <View style= {{marginBottom:'2%'}}></View>
 
-        <View style = {{backgroundColor: 'gray', marginBottom: '5%', width: '100%', borderWidth: 2, height: '10%', justifyContent: 'center', alignItems:'center'}}>
+        <View style = {{backgroundColor: 'gray', marginBottom: '2%', width: '100%', borderWidth: 2, height: '10%', justifyContent: 'center', alignItems:'center'}}>
         <Text style={{fontSize: 50, color: 'white', fontWeight: 'bold', textAlign:'center',alignItems:'center'}}>{codeArr[this.state.value]}</Text>
         </View>
 
@@ -604,7 +631,7 @@ const styles = StyleSheet.create({
     //flex: 1,
     backgroundColor: '#ddd',
     height: '100%',
-    width: '30%',
+    width: '32%',
     fontSize: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -614,9 +641,9 @@ const styles = StyleSheet.create({
     //flex: 1,
     backgroundColor: '#ddd',
     height: '100%',
-    width: '30%',
-    marginLeft:'5%',
-    marginRight:'5%',
+    width: '32%',
+    marginLeft:'2%',
+    marginRight:'2%',
     fontSize: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -624,8 +651,8 @@ const styles = StyleSheet.create({
   },
   container3: {
     //flex: .677,
-    width: '65%',
-    marginRight:'5%',
+    width: '66%',
+    marginRight:'2%',
     backgroundColor: '#ddd',
     height: '100%',
     fontSize: 50,
@@ -635,7 +662,7 @@ const styles = StyleSheet.create({
   },
   container4: {
     //flex: .323,
-    width:'30%',
+    width:'32%',
     backgroundColor: '#ddd',
     height: '100%',
     fontSize: 50,
@@ -664,7 +691,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333', width: 60, alignItems: 'center', justifyContent: 'center',
   },
   numRows:{
-    flexDirection: 'row', height:'10%', width:"100%", alignItems:'center', justifyContent:'center', marginBottom:'5%'
+    flexDirection: 'row', height:'10%', width:"100%", alignItems:'center', justifyContent:'center', marginBottom:'2%'
   }
  
 }); 
