@@ -428,6 +428,7 @@ export default class App extends React.Component {
     parenth:")",
     leftArrow:'<',
     rightArrow: '>',
+    firstTimeUser: "unset",
   }
 
   incValue = () =>{

@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "RCLP",
+    "name": "Code Raid",
     "slug": "RCLP",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFFFFF"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,10 +20,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#848484"
       },
       "softwareKeyboardLayoutMode": "pan",
-      "versionCode": 7,
+      "versionCode": 8,
       "package": "wildsteelerfan.tk.rclp",
       "permissions": []
     },
