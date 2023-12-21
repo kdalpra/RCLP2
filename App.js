@@ -546,7 +546,7 @@ componentDidMount(){
           </View>
           <View style= {{marginBottom:'2%'}}></View>
           
-          <TouchableOpacity onPress = {this.setFun} style = {{borderWidth: 2, borderRadius: 15, backgroundColor: 'green', width: 100, height: '8%', alignItems: 'center', justifyContent: 'center'}}> 
+          <TouchableOpacity onPress = {this.setFun} style = {{borderWidth: 2, borderRadius: 15, backgroundColor: 'green', width: '30%', height: '8%', alignItems: 'center', justifyContent: 'center'}}> 
           <Text style={{color:'white', fontSize: 25}}>Enter</Text>
           </TouchableOpacity>
 
@@ -688,10 +688,21 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   leftRight:{
-    backgroundColor: '#333333', width: 60, alignItems: 'center', justifyContent: 'center',
+    backgroundColor: '#333333',
+    width: '20%', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    marginLeft:'5%',
+    marginRight:'5%',
+    
   },
   numRows:{
-    flexDirection: 'row', height:'10%', width:"100%", alignItems:'center', justifyContent:'center', marginBottom:'2%'
+    flexDirection: 'row', 
+    height:'10%', 
+    width:"100%", 
+    alignItems:'center', 
+    justifyContent:'center', 
+    marginBottom:'2%'
   }
  
 }); 
